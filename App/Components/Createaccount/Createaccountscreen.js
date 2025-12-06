@@ -13,6 +13,8 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { ScaledSheet } from 'react-native-size-matters';
+import { useLanguage } from '../../src/Languagecontext'
+
 
 const emailIsValid = (email) => /\S+@\S+\.\S+/.test(email);
 
@@ -21,6 +23,8 @@ const CreateAccountScreen = ({ navigation }) => {
   const [canAgree, setCanAgree] = useState(false);
   const [agreed, setAgreed] = useState(false);
   const [email, setEmail] = useState('');
+  const { t } = useLanguage();
+
 
   const translateY = useRef(new Animated.Value(hp(100))).current;
 
@@ -73,8 +77,8 @@ const CreateAccountScreen = ({ navigation }) => {
       </View>
 
       {/* Titles */}
-      <Text style={styles.mainTitle}>Create Axyx account</Text>
-      <Text style={styles.subText}>The future of your financial freedom. its no longer about digits and decimals-its about discovery</Text>
+      <Text style={styles.mainTitle}>{t('create_account_title')}</Text>
+      <Text style={styles.subText}>{t('create_account_subtext')}</Text>
 
       {/* Email Input */}
       <TextInput
@@ -101,9 +105,9 @@ const CreateAccountScreen = ({ navigation }) => {
         </TouchableOpacity>
 
         <Text style={styles.termsText}>
-          By creating an account you agree to our{' '}
+          {t('terms_agree_text')}
           <Text style={styles.termLink} onPress={openModal}>
-            Terms & Conditions
+            {t('terms_link')}
           </Text>
         </Text>
       </View>
@@ -123,7 +127,7 @@ const CreateAccountScreen = ({ navigation }) => {
             !(emailIsValid(email) && agreed) && { opacity: 0.6 },
           ]}
         >
-          Next
+          {t('next')}
         </Text>
       </TouchableOpacity>
 
@@ -132,7 +136,7 @@ const CreateAccountScreen = ({ navigation }) => {
         <View style={styles.modalOverlay}>
           <Animated.View style={[styles.modalContent, { transform: [{ translateY }] }]}>
 
-            <Text style={styles.modalTitle}>Terms of Services</Text>
+            <Text style={styles.modalTitle}>{t('terms_modal_title')}</Text>
 
             <ScrollView
               style={styles.scrollArea}
@@ -140,19 +144,17 @@ const CreateAccountScreen = ({ navigation }) => {
               scrollEventThrottle={16}
             >
               <Text style={styles.termsLongText}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-                Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem…
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-                Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem…
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-                Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem…
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-                Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem…
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-                Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem…
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-                Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem…
-                {'\n\n'}(Make sure your text is long enough to scroll)
+                {t('terms_modal_text')}
+                 {t('terms_modal_text')}
+                  {t('terms_modal_text')}
+                   {t('terms_modal_text')}
+                    {t('terms_modal_text')}
+                      {t('terms_modal_text')}
+                        {t('terms_modal_text')}
+                          {t('terms_modal_text')}
+                            {t('terms_modal_text')}
+               
+                
               </Text>
             </ScrollView>
 
@@ -167,12 +169,12 @@ const CreateAccountScreen = ({ navigation }) => {
                   !canAgree && { opacity: 0.6 },
                 ]}
               >
-                Agree
+                {t('agree')}
               </Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={closeModal} style={styles.modalCloseArea}>
-              <Text style={styles.modalCloseText}>Close</Text>
+              <Text style={styles.modalCloseText}>{t('close')}</Text>
             </TouchableOpacity>
 
           </Animated.View>

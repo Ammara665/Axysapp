@@ -11,12 +11,15 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useLanguage } from "../../src/Languagecontext";
+
 
 export default function CreatePasswordScreen({ navigation }) {
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [showPass, setShowPass] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  const { t } = useLanguage();
 
   // Password criteria
   const has8 = password.length >= 8;
@@ -61,15 +64,14 @@ export default function CreatePasswordScreen({ navigation }) {
           </View>
 
           {/* TITLE */}
-          <Text style={styles.title}>Create password</Text>
+          <Text style={styles.title}>{t('create_password_title')}</Text>
           <Text style={styles.subtext}>
-            Create a strong and secure password to protect your account and
-            ensure your information stays safe.
+            {t('create_password_subtext')}
           </Text>
 
           {/* PASSWORD FIELD */}
           <View style={styles.field}>
-            <Text style={styles.label}>Password</Text>
+            <Text style={styles.label}>{t('password_label')}</Text>
             <View style={styles.inputWrapper}>
               <TextInput
                 style={styles.input}
@@ -90,12 +92,12 @@ export default function CreatePasswordScreen({ navigation }) {
 
             {/* CRITERIA LIST */}
             <View style={styles.criteriaBox}>
-              <CriteriaRow label="Minimum 8 characters" valid={has8} />
-              <CriteriaRow label="At least one uppercase letter" valid={hasUpper} />
-              <CriteriaRow label="At least one lowercase letter" valid={hasLower} />
-              <CriteriaRow label="At least one number" valid={hasNum} />
+              <CriteriaRow label={t('criteria_8chars')} valid={has8} />
+              <CriteriaRow label={t('criteria_uppercase')} valid={hasUpper} />
+              <CriteriaRow label={t('criteria_lowercase')} valid={hasLower} />
+              <CriteriaRow label={t('criteria_number')} valid={hasNum} />
               <CriteriaRow
-                label="At least one special character"
+                label={t('criteria_special')}
                 valid={hasSpecial}
               />
             </View>
@@ -103,14 +105,14 @@ export default function CreatePasswordScreen({ navigation }) {
 
           {/* CONFIRM PASSWORD */}
           <View style={styles.field}>
-            <Text style={styles.label}>Confirm Password</Text>
+            <Text style={styles.label}>{t('confirm_password_label')}</Text>
             <View style={styles.inputWrapper}>
               <TextInput
                 style={styles.input}
                 secureTextEntry={!showConfirm}
                 value={confirm}
                 onChangeText={setConfirm}
-                placeholder="Confirm Password"
+                placeholder={t('confirm_password_placeholder')}
                 placeholderTextColor="#666"
               />
               <TouchableOpacity onPress={() => setShowConfirm(!showConfirm)}>
@@ -123,7 +125,7 @@ export default function CreatePasswordScreen({ navigation }) {
             </View>
 
             {passwordMatch && (
-              <Text style={styles.matchText}>✓ Password Match</Text>
+              <Text style={styles.matchText}>{t('password_match')}</Text>
             )}
           </View>
 
@@ -139,7 +141,7 @@ export default function CreatePasswordScreen({ navigation }) {
             <Text
               style={[styles.nextTxt, { color: enableNext ? "#000" : "#888" }]}
             >
-              Next
+              {t('next_button')}
             </Text>
           </TouchableOpacity>
         </ScrollView>

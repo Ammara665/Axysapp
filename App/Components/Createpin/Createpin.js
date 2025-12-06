@@ -8,9 +8,12 @@ import {
   Image,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useLanguage } from "../../src/Languagecontext";
+
 
 export default function CreatePinScreen({ navigation }) {
   const [pin, setPin] = useState("");
+  const { t } = useLanguage();
 
   const handleInput = (value) => {
     if (pin.length < 4) {
@@ -33,8 +36,8 @@ export default function CreatePinScreen({ navigation }) {
       {/* Dice Image */}
       <Image source={require("../../src/images/pin1.png")} style={styles.dice} />
 
-      <Text style={styles.title}>Setup PIN code</Text>
-      <Text style={styles.subtitle}>Setup PIN code to quickly and securely log in</Text>
+      <Text style={styles.title}>{t('setup_pin_title')}</Text>
+      <Text style={styles.subtitle}>{t('setup_pin_subtitle')}</Text>
 
       {/* PIN Boxes */}
       <View style={styles.pinRow}>

@@ -9,8 +9,11 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useLanguage } from "../../src/Languagecontext";
+
 
 export default function ConfirmPinScreen({ route, navigation }) {
+  const { t } = useLanguage();
   const { firstPin } = route.params;
   const [pin, setPin] = useState("");
 
@@ -41,8 +44,8 @@ export default function ConfirmPinScreen({ route, navigation }) {
       {/* Dice */}
       <Image source={require("../../src/images/pin1.png")} style={styles.dice} />
 
-      <Text style={styles.title}>Confirm PIN code</Text>
-      <Text style={styles.subtitle}>Re-enter the PIN code you just set</Text>
+      <Text style={styles.title}>{t('confirm_pin_title')}</Text>
+      <Text style={styles.subtitle}>{t('confirm_pin_subtitle')}</Text>
 
       {/* PIN Boxes */}
       <View style={styles.pinRow}>

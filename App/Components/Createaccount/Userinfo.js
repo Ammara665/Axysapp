@@ -4,22 +4,24 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScaledSheet } from "react-native-size-matters";
 import ProgressBar  from "../Progressbar";
+import { useLanguage } from '../../src/Languagecontext'
 
 export default function PhoneScreen({ navigation }) {
   const [phone, setPhone] = useState("");
+  const { t } = useLanguage();
 
   return (
     <SafeAreaView style={styles.container}>
       <ProgressBar active={1} />
 
-      <Text style={styles.title}>What's your phone number?</Text>
+      <Text style={styles.title}>{t('phone_screen_title')}</Text>
 
       <View style={styles.phoneInputWrapper}>
         <Text style={styles.countryCode}>+1</Text>
         <TextInput
           style={styles.phoneInput}
           keyboardType="numeric"
-          placeholder="1234567890"
+          placeholder={t('phone_screen_placeholder')}
           placeholderTextColor="#777"
           value={phone}
           onChangeText={setPhone}
@@ -30,7 +32,7 @@ export default function PhoneScreen({ navigation }) {
         style={styles.button}
         onPress={() => navigation.navigate("Namefields")}
       >
-        <Text style={styles.btnText}>Verify Phone Number</Text>
+        <Text style={styles.btnText}>{t('phone_screen_button')}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -58,5 +60,5 @@ const styles = ScaledSheet.create({
     borderRadius: "10@ms",
     marginTop: "40@ms",
   },
-  btnText: { fontSize: "16@ms", fontWeight: "700" },
+  btnText: { fontSize: "16@ms", fontWeight: "700",color: "#000" },
 });

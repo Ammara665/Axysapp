@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useLanguage } from '../../src/Languagecontext'
 
 const COUNTRIES = [
   "United States of America",
@@ -32,6 +33,7 @@ export default function GetToKnowYouScreen({ navigation }) {
   const [last, setLast] = useState("");
   const [nationality, setNationality] = useState("");
   const [openNationalityModal, setOpenNationalityModal] = useState(false);
+  const { t } = useLanguage();
 
   const allFilled = first && last && nationality; // optional middle
 
@@ -64,38 +66,38 @@ export default function GetToKnowYouScreen({ navigation }) {
           <View style={[styles.progressFill, { width: "50%" }]} />
         </View>
 
-         <Text style={styles.headerTitle}>Let's get to know you</Text>
+         <Text style={styles.headerTitle}>{t('get_to_know_title')}</Text>
 
         {/* FORM */}
         <View style={styles.form}>
-          <Text style={styles.label}>First Name</Text>
+          <Text style={styles.label}>{t('first_name_label')}</Text>
           <TextInput
             value={first}
             onChangeText={setFirst}
             style={styles.input}
           />
 
-          <Text style={styles.label}>Middle Name (Optional)</Text>
+          <Text style={styles.label}>{t('middle_name_label')}</Text>
           <TextInput
             value={middle}
             onChangeText={setMiddle}
             style={styles.input}
           />
 
-          <Text style={styles.label}>Last Name</Text>
+          <Text style={styles.label}>{t('last_name_label')}</Text>
           <TextInput
             value={last}
             onChangeText={setLast}
             style={styles.input}
           />
 
-          <Text style={styles.label}>Nationality</Text>
+          <Text style={styles.label}>{t('nationality_label')}</Text>
           <TouchableOpacity
             style={styles.input}
             onPress={() => setOpenNationalityModal(true)}
           >
             <Text style={{ color: nationality ? "#fff" : "#777" }}>
-              {nationality ? nationality : "Select nationality"}
+              {nationality ? nationality : t('select_nationality')}
             </Text>
           </TouchableOpacity>
         </View>
@@ -109,7 +111,7 @@ export default function GetToKnowYouScreen({ navigation }) {
           onPress={handleNext}
         >
           <Text style={[styles.nextTxt, { color: allFilled ? "#000" : "#999" }]}>
-            Next
+            {t('next')}
           </Text>
         </TouchableOpacity>
 
@@ -117,7 +119,7 @@ export default function GetToKnowYouScreen({ navigation }) {
         <Modal visible={openNationalityModal} transparent animationType="slide">
           <View style={styles.modalBg}>
             <View style={styles.modalBox}>
-              <Text style={styles.modalTitle}>Select Nationality</Text>
+              <Text style={styles.modalTitle}>{t('select_nationality_modal_title')}</Text>
               <FlatList
                 data={COUNTRIES}
                 keyExtractor={(item) => item}
@@ -137,7 +139,7 @@ export default function GetToKnowYouScreen({ navigation }) {
                 style={styles.closeBtn}
                 onPress={() => setOpenNationalityModal(false)}
               >
-                <Text style={{ color: "#fff", textAlign: "center" }}>Close</Text>
+                <Text style={{ color: "#fff", textAlign: "center" }}>{t('close')}</Text>
               </TouchableOpacity>
             </View>
           </View>

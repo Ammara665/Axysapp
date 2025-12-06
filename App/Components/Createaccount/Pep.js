@@ -10,10 +10,13 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useLanguage } from "../../src/Languagecontext";
+
 
 export default function PEPScreen({ navigation }) {
   const [selected, setSelected] = useState(null);
   const allFilled = selected !== null;
+  const { t } = useLanguage();
 
   const handleNext = () => {
     if (allFilled) {
@@ -40,9 +43,9 @@ export default function PEPScreen({ navigation }) {
           <View style={[styles.progressFill, { width: "75%" }]} />
         </View>
 
-        <Text style={styles.headerTitle} > Let's get to know you</Text>
+        <Text style={styles.headerTitle} > {t('get_to_know_title')}</Text>
         <Text style={styles.subText}>
-          Are you Politically Exposed Person (PEP)?
+          {t('pep_question')}
         </Text>
 
         <View style={{ marginTop: 30,flexDirection: 'row',   }}>
@@ -53,7 +56,7 @@ export default function PEPScreen({ navigation }) {
             ]}
             onPress={() => setSelected(true)}
           >
-            <Text style={styles.optionTxt}>Yes</Text>
+            <Text style={styles.optionTxt}>{t('yes_option')}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -63,7 +66,7 @@ export default function PEPScreen({ navigation }) {
             ]}
             onPress={() => setSelected(false)}
           >
-            <Text style={styles.optionTxt}>No</Text>
+            <Text style={styles.optionTxt}>{t('no_option')}</Text>
           </TouchableOpacity>
         </View>
 
@@ -76,7 +79,7 @@ export default function PEPScreen({ navigation }) {
           onPress={handleNext}
         >
           <Text style={[styles.nextTxt, { color: allFilled ? "#000" : "#999" }]}>
-            Next
+            {t('next')}
           </Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>

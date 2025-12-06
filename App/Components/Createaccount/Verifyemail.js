@@ -12,11 +12,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { ScaledSheet, s } from "react-native-size-matters";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Userinfo from "./Userinfo";
+import { useLanguage } from '../../src/Languagecontext'
 
 export default function OtpScreen({ navigation }) {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [timer, setTimer] = useState(60);
   const [verifying, setVerifying] = useState(false);
+  const { t } = useLanguage();
 
   const inputs = useRef([]);
 
@@ -63,10 +65,10 @@ export default function OtpScreen({ navigation }) {
         />
       </View>
 
-      <Text style={styles.title}>Verify your email</Text>
+      <Text style={styles.title}>{t('otp_screen_title')}</Text>
 
       <Text style={styles.subtitle}>
-        We've sent a 6-digit verification code to your email. The code expires in 60 seconds.
+        {t('otp_screen_subtitle')}
       </Text>
 
       {/* OTP Boxes */}
@@ -88,7 +90,7 @@ export default function OtpScreen({ navigation }) {
       {verifying && (
         <View style={styles.verifyingWrapper}>
           <ActivityIndicator size="small" color="#fff" />
-          <Text style={styles.verifyingText}>Verifying code...</Text>
+          <Text style={styles.verifyingText}>{t('otp_screen_verifying')}</Text>
         </View>
       )}
 
@@ -112,7 +114,7 @@ export default function OtpScreen({ navigation }) {
                 
                ]}
              >
-               Get Personal information
+               {t('otp_screen_next_btn')}
              </Text>
 
 
