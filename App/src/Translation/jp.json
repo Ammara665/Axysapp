@@ -56,11 +56,59 @@
   "select_country": "国を選択",
   "next_button": "次へ",
   "select_nationality_title": "国籍を選択",
-  "close_button": "閉じる"
+  "close_button": "閉じる",
+  
+  "create_password_title": "パスワードを作成",
+  "create_password_subtext": "アカウントを保護し、情報を安全に保つために、強力で安全なパスワードを作成してください。",
+  "password_label": "パスワード",
+  "confirm_password_label": "パスワードを確認",
+  "password_placeholder": "パスワード",
+  "confirm_password_placeholder": "パスワードを確認",
+  "password_match": "✓ パスワードが一致しました",
+  
+  "criteria_8chars": "最低8文字",
+  "criteria_uppercase": "少なくとも1つの大文字",
+  "criteria_lowercase": "少なくとも1つの小文字",
+  "criteria_number": "少なくとも1つの数字",
+  "criteria_special": "少なくとも1つの特殊文字",
+  
+  "setup_pin_title": "PINコードを設定",
+  "setup_pin_subtitle": "PINコードを設定して、すばやく安全にログイン",
+  
+  "confirm_pin_title": "PINコードを確認",
+  "confirm_pin_subtitle": "先ほど設定したPINコードを再入力してください",
+  "pin_mismatch_alert": "PINが一致しません！",
+  
+  "pin_success_title": "PINの設定に成功しました",
+  "pin_success_subtitle": "これでPINを使ってログインできます",
+  "pin_success_button": "続ける",
+  
+  "login_welcome": "ようこそ",
+  "login_subtitle": "アカウントにログインして、つながりを維持しましょう",
+  "login_tab_email": "メール",
+  "login_tab_phone": "電話番号",
+  "login_label_email": "メール",
+  "login_placeholder_email": "メールアドレスを入力してください",
+  "login_label_phone": "電話番号",
+  "login_placeholder_phone": "電話番号を入力してください",
+  "login_label_password": "パスワード",
+  "login_placeholder_password": "パスワードを入力してください",
+  "login_forgot_password": "パスワードをお忘れですか？",
+  "login_button": "ログイン"
+}
+
+
+
+
+
+
+
+
+
 
 
  
-}
+
 
 
 

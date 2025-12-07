@@ -59,11 +59,57 @@
   "select_country": "Select country",
   "next_button": "Next",
   "select_nationality_title": "Select Nationality",
-  "close_button": "Close"
+  "close_button": "Close",
+  
+  "create_password_title": "Create password",
+  "create_password_subtext": "Create a strong and secure password to protect your account and ensure your information stays safe.",
+  "password_label": "Password",
+  "confirm_password_label": "Confirm Password",
+  "password_placeholder": "Password",
+  "confirm_password_placeholder": "Confirm Password",
+  "password_match": "✓ Password Match",
+ 
+  "criteria_8chars": "Minimum 8 characters",
+  "criteria_uppercase": "At least one uppercase letter",
+  "criteria_lowercase": "At least one lowercase letter",
+  "criteria_number": "At least one number",
+  "criteria_special": "At least one special character",
+  
+  "setup_pin_title": "Setup PIN code",
+  "setup_pin_subtitle": "Setup PIN code to quickly and securely log in",
+  
+  "confirm_pin_title": "Confirm PIN code",
+  "confirm_pin_subtitle": "Re-enter the PIN code you just set",
+  "pin_mismatch_alert": "PINs do not match!",
+  
+  "pin_success_title": "PIN set up successfully",
+  "pin_success_subtitle": "You can now use your PIN to log in",
+  "pin_success_button": "Continue",
+  
+  "login_welcome": "Welcome",
+  "login_subtitle": "Log in to access your account and stay connected",
+  "login_tab_email": "Email",
+  "login_tab_phone": "Phone number",
+  "login_label_email": "Email",
+  "login_placeholder_email": "Enter your email",
+  "login_label_phone": "Phone number",
+  "login_placeholder_phone": "Enter phone number",
+  "login_label_password": "Password",
+  "login_placeholder_password": "Enter your password",
+  "login_forgot_password": "Forgot Password?",
+  "login_button": "Log In"
+}
+
+
+
+
+
+
+
 
 
   
-}
+
 
 
 
